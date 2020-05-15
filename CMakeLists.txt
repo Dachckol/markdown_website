@@ -13,11 +13,11 @@ set(DISCOUNT_ONLY_LIBRARY ON FORCE)
 add_subdirectory(${PROJECT_SOURCE_DIR}/discount/cmake)
 
 #----------------------
-#   simple web server
+#   httplib
 #----------------------
 
-set(USE_OPENSSL OFF FORCE)
-add_subdirectory(${PROJECT_SOURCE_DIR}/Simple-Web-Server)
+add_library(httplib INTERFACE)
+target_include_directories(httplib INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/cpp-httplib)
 
 #----------------------
 #   Web Server
@@ -29,7 +29,7 @@ target_include_directories(MichalVSComputers PRIVATE ${PROJECT_SOURCE_DIR}/src)
 target_sources(MichalVSComputers PRIVATE ${PROJ_SOURCES})
 target_link_libraries(MichalVSComputers PRIVATE
   libmarkdown # DISCOUNT
-  simple-web-server
+  httplib
   )
 set_target_properties(MichalVSComputers PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/build")
 file(MAKE_DIRECTORY ${PROJECT_SOURCE_DIR}/build/Resources)

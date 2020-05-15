@@ -1,6 +1,6 @@
 [submodule "discount"]
 	path = discount
 	url = https://github.com/Orc/discount.git
-[submodule "Simple-Web-Server"]
-	path = Simple-Web-Server
-	url = https://gitlab.com/eidheim/Simple-Web-Server.git
+[submodule "cpp-httplib"]
+	path = cpp-httplib
+	url = https://github.com/yhirose/cpp-httplib.git
