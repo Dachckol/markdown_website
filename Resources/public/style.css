@@ -25,18 +25,18 @@ article {
 }
 
 article code{
-  font-style: italic;
   background: #eee8d5;
-  padding: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
   border-radius: 5px;
   color: #586e75;
 }
 
-article a{
+article a, footer a{
   color: #2aa198;
   font-weight: bold;
 }
-article a:hover{
+article a:hover, footer a:hover{
   color: #d33682;
   font-weight: bold;
 }
