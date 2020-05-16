@@ -7,14 +7,16 @@
 
 #include <httplib.h>
 
+#define TITLE_TAG "%{TITLE}%"
+#define CONTENT_TAG "%{CONTENT}%"
+
 extern "C" {
 #include <mkdio.h>
 }
 
 char page_template[1000];
-std::string resources_path;
+char* resources_path;
 std::map<std::string, std::string> pages;
-
 
 bool exists(const std::string& page_name) {
   return pages.find(page_name) != pages.end();
@@ -36,9 +38,11 @@ bool generate_page(const std::string& page_name) {
   int size = mkd_document(md, &html_contents);
 
   std::string html_page(page_template);
-  html_page.replace(html_page.find("%{TITLE}%"), 9, mkd_doc_title(md));
-  html_page.replace(html_page.find("%{CONTENT}%"), 11, html_contents);
-  
+  while(html_page.find(TITLE_TAG, strlen(TITLE_TAG)) != html_page.npos) {
+    html_page.replace(html_page.find(TITLE_TAG), strlen(TITLE_TAG), mkd_doc_title(md));
+  }
+  html_page.replace(html_page.find(CONTENT_TAG), strlen(CONTENT_TAG), html_contents);
+
   pages.insert(std::make_pair(page_name, html_page));
   return true;
 }
@@ -63,7 +67,7 @@ int main(int argc, char** argv) {
     std::cerr << "Need resources dir as first arg" << std::endl;
     return -1;
   }
-  resources_path = std::string(argv[1]);
+  resources_path = argv[1];
   initialise();
   httplib::Server server;
 
