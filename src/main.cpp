@@ -7,6 +7,10 @@
 
 #include <httplib.h>
 
+extern "C" {
+#include <mkdio.h>
+}
+
 char page_template[1000];
 std::string resources_path;
 std::map<std::string, std::string> pages;
@@ -25,7 +29,17 @@ bool generate_page(const std::string& page_name) {
   std::stringstream contents;
   contents << page_file.rdbuf();
 
-  pages.insert(std::make_pair(page_name, contents.str()));
+  std::string file_contents = contents.str();
+  MMIOT* md = mkd_string(file_contents.c_str(), file_contents.size(), 0);
+  mkd_compile(md, 0);
+  char* html_contents;
+  int size = mkd_document(md, &html_contents);
+
+  std::string html_page(page_template);
+  html_page.replace(html_page.find("%{TITLE}%"), 9, mkd_doc_title(md));
+  html_page.replace(html_page.find("%{CONTENT}%"), 11, html_contents);
+  
+  pages.insert(std::make_pair(page_name, html_page));
   return true;
 }
 
@@ -34,16 +48,6 @@ std::string get_page(const std::string page_name) {
   if (!exists(page_name))
     if (!generate_page(page_name)) return get_page("not_found");
   return pages.at(page_name);
-}
-
-
-std::string build_template(const std::string& title) {
-  const char* title_tag = "%{TITLE}%";
-  const char* content_tag = "%{CONTENT}%";
-  std::string clone(page_template);
-  clone.replace(clone.find(title_tag), 9, title);
-  clone.replace(clone.find(content_tag), 11, get_page(title));
-  return clone;
 }
 
 
@@ -69,7 +73,7 @@ int main(int argc, char** argv) {
       R"(/)",
       [&](const httplib::Request& req, httplib::Response& res) {
     res.set_content(
-        build_template("home"), 
+        get_page("home"), 
         "text/html"
         );
   });
@@ -79,7 +83,7 @@ int main(int argc, char** argv) {
       [&](const httplib::Request& req, httplib::Response& res) {
     auto title = req.matches[1];
     res.set_content(
-        build_template(title), 
+        get_page(title), 
         "text/html"
         );
   });
