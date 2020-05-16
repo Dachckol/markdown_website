@@ -17,6 +17,7 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/discount/cmake)
 #----------------------
 
 add_library(httplib INTERFACE)
+target_link_libraries(httplib INTERFACE pthread)
 target_include_directories(httplib INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/cpp-httplib)
 
 #----------------------
