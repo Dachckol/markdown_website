@@ -32,8 +32,8 @@ bool generate_page(const std::string& page_name) {
   contents << page_file.rdbuf();
 
   std::string file_contents = contents.str();
-  MMIOT* md = mkd_string(file_contents.c_str(), file_contents.size(), 0);
-  mkd_compile(md, 0);
+  MMIOT* md = mkd_string(file_contents.c_str(), file_contents.size(), MKD_FENCEDCODE);
+  mkd_compile(md, MKD_FENCEDCODE);
   char* html_contents;
   int size = mkd_document(md, &html_contents);
 

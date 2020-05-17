@@ -24,12 +24,17 @@ article {
   padding-bottom: 5%;
 }
 
-article code{
+article p code, pre {
   background: #eee8d5;
   padding-left: 4px;
   padding-right: 4px;
   border-radius: 5px;
   color: #586e75;
+}
+
+pre {
+  padding: 10px;
+  border-radius: 5px;
 }
 
 article a, footer a{
