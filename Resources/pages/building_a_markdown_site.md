@@ -143,7 +143,8 @@ bool good_mount = server.set_mount_point(
     );
 if (!good_mount) throw std::runtime_error("Failed to mount static files");
 
-server.listen("localhost", 4138); // 4138 is arbitrary. nginx will forward requests from HTTP ports to this.
+// 4138 is arbitrary. nginx will forward requests from HTTP ports to this.
+server.listen("localhost", 4138);
 ```
 
 The styling and template are up to you so I won't cover those here. All the code along with the build system and the contents and styling of my version (the one you're using) is on my Github:
@@ -151,6 +152,3 @@ The styling and template are up to you so I won't cover those here. All the code
 [Dachckol/markdown_site](https://github.com/Dachckol/markdown_website)
 
 Copy, edit, use, whatever... All the "Michal" related things are in `Resources` so will be easy to edit me out.
-
-
-

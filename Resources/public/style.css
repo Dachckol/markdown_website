@@ -24,6 +24,38 @@ article {
   padding-bottom: 5%;
 }
 
+footer {
+  padding-top: 5%;
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-bottom: 5%;
+  background: #eee8d5;
+  text-align: center;
+}
+
+@media (max-width: 1000px) {
+  header {
+    padding-top: 5%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 5%;
+  }
+
+  article {
+    padding-top: 5%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 5%;
+  }
+
+  footer {
+    padding-top: 5%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 5%;
+  }
+}
+
 article p code, pre {
   background: #eee8d5;
   padding-left: 4px;
@@ -46,14 +78,6 @@ article a:hover, footer a:hover{
   font-weight: bold;
 }
 
-footer {
-  padding-top: 5%;
-  padding-left: 15%;
-  padding-right: 15%;
-  padding-bottom: 5%;
-  background: #eee8d5;
-  text-align: center;
-}
 
 h1 {
   color: #586e75;

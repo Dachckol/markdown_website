@@ -9,4 +9,4 @@
 [Building a Markdown Site](/building_a_markdown_site)
 
 
-That's about it. I stay clear of social media, but you can contact me at dackomichal@gmail.com.
+That's about it. You can contact me at dackomichal@gmail.com.
