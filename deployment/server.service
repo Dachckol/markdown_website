@@ -1,0 +1,10 @@
+[Unit]
+Description=Markdown server
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/var/sites/michalvscomputers.com/MarkdownWebsite /home/michal/markdown_website/Resources
+
+[Install]
+WantedBy=multi-user.target
