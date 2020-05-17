@@ -61,21 +61,36 @@ article p code, pre {
   padding-left: 4px;
   padding-right: 4px;
   border-radius: 5px;
-  color: #586e75;
+  color: #6c71c4;
 }
 
 pre {
   padding: 10px;
   border-radius: 5px;
+  color: #586e75;
 }
 
 article a, footer a{
-  color: #2aa198;
+  color: #d33682;
   font-weight: bold;
 }
 article a:hover, footer a:hover{
-  color: #d33682;
+  color: #2aa198;
   font-weight: bold;
+}
+
+article thead th{
+  border-bottom: 1px solid #586e75;
+  color: #586e75;
+}
+
+article th, article td {
+  text-align: left;
+  padding: 5px;
+}
+
+article em, article i {
+  color: #cb4b16;
 }
 
 

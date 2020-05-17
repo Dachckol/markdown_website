@@ -177,10 +177,10 @@ I'm a Fedora-boy so that's what I'm using. However, the exact steps will likely 
 
 This has been documented everywhere, but I still find myself looking it up so here we go. We want to be accessible on both `http://www.[your domain]` and `http://[your domain]`. Pick one and redirect the other. I think `www` is a little too 2002 for me so I pick the one without `www` and redirect the `www`. I'm sure you can figure out how to do it the other way. Here is the DNS records you want:
 
-|  Type             | From | To                   |
-|-------------------|:-----|:---------------------|
-| "A" Record        | @    | [your server IP]     |
-|Redirect(unmasked) | www  | http://[your domain] |
+|Type              |From |To                   |
+|------------------|:----|:--------------------|
+|"A" Record        | @   |[your server IP]     |
+|Redirect(unmasked)| www |http://[your domain] |
 
 Can change that bottom one to `https` later.
 
