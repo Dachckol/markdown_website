@@ -25,10 +25,13 @@ While I was always going to be building my own thing, you might settle for someo
 
 The idea of a static site based on markdown is nothing new. There are a bunch of online tools that do this already:
 
+1. [jekyllrb.com](https://jekyllrb.com/) - *ruby project that generates static sites out of markdown, liquid, html and css. You can host it yourself*
 1. [blot.im](https://blot.im/) - *a very nice minimalist blog made up of just folders and markdown*
 1.  [smallvictori.es](https://www.smallvictori.es) - *another blot, with less focus on markdown*
 
 Both "blot" and "smallvictori" charge around $4 a month for the site. I can take the same $4, get a low spec server and build my own solution (that also gives me something to write about straight away).
+
+The same $4 can also be spent on setting up and hosting a Jekyll blog, but for accademic and fun reasons I am going to be reinventing the Jekyll wheel in my own way.
 
 # The Plan
 
