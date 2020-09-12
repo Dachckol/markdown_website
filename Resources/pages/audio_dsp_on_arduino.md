@@ -77,11 +77,11 @@ void loop() {
   total_ticks += ticks-last_ticks;
   last_ticks = ticks;
 
-  if (total_ticks > 1000000/SAMPLE_RATE && buf_id < FRAME_SIZE) {
+  if (total_ticks > 1000000/SAMPLE_RATE && buf_idx < FRAME_SIZE) {
     buffer[buf_idx++] = (float)(analogRead(A0)-500)/1000;
-  } else if (buf_id == FRAME_SIZE) {
+  } else if (buf_idx == FRAME_SIZE) {
     process_buffer();
-    buf_id = 0;
+    buf_idx = 0;
   }
 }
 
@@ -134,14 +134,13 @@ float bins[3] = {0};
 for (int i = 2; i < FRAME_SIZE/2; i++) {
   if (buffer[i] < 0.01) continue; // too low to count
 
-  const int frequency = i*(float)SAMPLE_RATE/(size << 1); // calculate frequency basing on index
-  Serial.print(frequency);
-  Serial.print("Hz = ");
-  Serial.println(buffer[i]);
+  //  calculate frequency basing on index
+  //  (0.5*sample_rate)/(0.5*frame_size) = sample_rate/frame_size
+  const int frequency = i*(float)SAMPLE_RATE/FRAME_SIZE;
 
   if (frequency < 450) bins[0] += buffer[i] * 0.5; // blue bin
   else if (frequency < 2000) bins[1] += buffer[i] * 2; // green bin
-  else bins[2] += buffer[i] * 3; // red bin
+  else if (frequency < 4000) bins[2] += buffer[i] * 3; // red bin
 }
 
 float bluef = bins[0];
@@ -174,4 +173,4 @@ And there you have it!
 
 The next steps would be to get in the headphone jack working and outputting into something better than just a single LED. For example an addressable LED strip would allow for displaying an entire frequency band with each LED being responsible for a different frequency range.
 
-As always project is open sourced [here](https://github.com/Dachckol/music_led).
+As always, project is open sourced [here](https://github.com/Dachckol/music_led).

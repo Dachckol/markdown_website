@@ -49,7 +49,7 @@ For the HTTP server I went with [cpp-httplib](https://github.com/yhirose/cpp-htt
 
 The articles on pages will be written in markdown, but some parts won't change. These are the header and the footer of pages along with the html `<head>` section etc. The code should, therefore, inject our HTML content (compiled from markdown) into designated parts of a template.
 
-I will need to write some CSS so the template will need pull in a static file. The server needs to serve static files from a designated directory (this also lets me embed images). This could alternatively be done though NGINX (which probably does it better). We will see...
+I will need to write some CSS so the template will need to pull in a static file. The server needs to serve static files from a designated directory (this also lets me embed images). This could alternatively be done though NGINX (which probably does it better). We will see...
 
 I want the website to feel dynamic. If I push a markdown article and it should be instantly accessible.
 
