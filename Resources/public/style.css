@@ -57,11 +57,11 @@ footer {
 }
 
 article p code, pre {
-  background: #eee8d5;
+  background: #1a4955;
   padding-left: 4px;
   padding-right: 4px;
   border-radius: 5px;
-  color: #2aa198;
+  color: #3bb2a9;
 }
 
 pre {
