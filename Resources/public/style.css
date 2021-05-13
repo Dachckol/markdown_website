@@ -1,6 +1,6 @@
 body {
-  background: #fdf6e3;
-  color: #002b36;
+  background: #073642;
+  color: #839496;
   font-family: "Courier New", Courier, monospace;
 }
 
@@ -13,7 +13,7 @@ header {
   padding-left: 15%;
   padding-right: 15%;
   padding-bottom: 5%;
-  background: #eee8d5;
+  background: #002b36;
   text-align: center;
 }
 
@@ -29,7 +29,7 @@ footer {
   padding-left: 15%;
   padding-right: 15%;
   padding-bottom: 5%;
-  background: #eee8d5;
+  background: #002b36;
   text-align: center;
 }
 
@@ -61,13 +61,12 @@ article p code, pre {
   padding-left: 4px;
   padding-right: 4px;
   border-radius: 5px;
-  color: #6c71c4;
+  color: #2aa198;
 }
 
 pre {
   padding: 10px;
   border-radius: 5px;
-  color: #586e75;
 }
 
 article a, footer a{
@@ -95,11 +94,11 @@ article em, article i {
 
 
 h1 {
-  color: #586e75;
+  color: #93a1a1;
 }
 
 h4 {
-  color: #93a1a1;
+  color: #657b83;
   font-weight: 1pt;
   font-size: 12pt;
   font-style: italic;
