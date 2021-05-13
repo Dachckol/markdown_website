@@ -57,6 +57,8 @@ At the same time, I cannot be generating the html every time the user asks for a
 
 It would be relatively trivial to get this more "RESTful" in a "stateless" sense by storing the compiled pages on the file system. There could then be a separate tool that generates the html files and the server just deals them out. Other fun ideas include change detection for reloading the cache automatically.
 
+It would make sense to build a generator which takes a bunch of these markdown files and spits out HTML files which can then be served as a static site. This would avoid the on-the-go markdown compilation. However, I anticipate eventually running some backend services. If I build a static site, I will make it harder in the future to provide any API over the internet. For this reason I am going to go with lazy compiling of the markdown. This approach is also known as AFISI(accounting for imaginary scaling issues).
+
 # The Solution
 
 The whole thing turned out around 100 lines of C++ so I did not bother with OOP and kept everything in the same file for now. Some important bits:
