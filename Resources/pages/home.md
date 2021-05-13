@@ -11,4 +11,4 @@
 [Audio DSP on Arduino](/audio_dsp_on_arduino)
 
 
-That's about it. You can contact me at dackomichal@gmail.com.
+That's about it. You can contact me at michal@michaldacko.com.
